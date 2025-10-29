@@ -14,7 +14,6 @@ const io = new Server(server);
 
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 
-app.use("/", )
 
 registerGameSocket(io)
 
