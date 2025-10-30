@@ -1,4 +1,5 @@
-import fs from "fs"
+
+import loadExistingGames from "../../frontend/public/js/functions.js"
 
 const clients = new Map()
 
@@ -24,8 +25,24 @@ export default function registerGameSocket(io) {
             console.log(`Client with ID ${clientID} and Socket ID ${socket.id} reconnected`)
         })
 
+
+
+
+        socket.on("requestGamesData", ()=>{
+
+            console.log("Request for Game Data is here")
+            socket.emit("sendGameData", { gamesData: loadExistingGames()})
+        })
+
+
+
+
+        
         socket.on("createGame", (data)=>{
-            socket.emit("loadView", )
+
+            socket.emit("loadView", { view: data.view, games: loadExistingGames()})
+
+            // window.location.href = "/host."
         })
 
 

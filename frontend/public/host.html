@@ -3,22 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/host.css">
+    <title>Host Dashboard</title>
 </head>
 <body>
-    <h1>HOST DASHBOARD</h1>
-    <div class="existing-games-container">
-        <span>Existing Games</span>
-        <div class="games-container">
-            
+    <header>
+        <h1>KAHOOM</h1>
+        <h2>Host Dashboard</h1>
+    </header>
+
+    <main>
+        <section class="existing-games-section">
+            <h2>Existing Game Sets</h2>
+            <div class="games-container">
+                <!-- Buttons for existing games will be appended here -->
+            </div>
+        </section>
+
+
+        <section>
+            <h2>Start Game</h2>
+        </section>
+
+        <section class="create-game-section">
+            <h2>Create New Game Set</h2>
+            <button id="create-game-button">Create New Game</button>
+        </section>
+        <section class="create-game-section" style="display:none;">
+    <header>
+        <h1>Create New Game</h1>
+    </header>
+
+    <div class="create-game-content">
+        <!-- Game Name -->
+        <div class="input-group">
+            <label for="game-name">Game Name:</label>
+            <input type="text" id="game-name" placeholder="Enter game name">
+        </div>
+
+        <!-- Questions Container -->
+        <div class="questions-container">
+            <h2>Questions</h2>
+            <!-- Dynamisch hinzugefügte Fragen kommen hier hin -->
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <button id="add-question-button">Add Question</button>
+            <button id="save-game-button">Save Game</button>
+            <button id="back-button">Back to Dashboard</button>
         </div>
     </div>
-    <div class="create-new-game-container">
-        <button id="create-game-button">Create New Game</button>
-    </div>
-    
+</section>
+
+    </main>
+
     <script src="/socket.io/socket.io.js"></script>
-    <script type="module">const socket = io(); </script>
+    <script type="module">const socket = io();</script>
     <script defer src="./js/host.js" type="module"></script>
 </body>
 </html>

@@ -1,12 +1,9 @@
-export default function loadExistingGames(gamesJson){
-    const games = JSON.parse(gamesJson)
-    const root = document.querySelector(".existing-games-container")
+import fs from "fs"
 
-    for(let game in games){
-        const gameBox = document.createElement("div")
-        gameBox.innerText = game.gameName
 
-        root.appendChild(gameBox)
-    }
+export default function loadExistingGames(){
+    console.log("loading...")
+    const games = JSON.parse(fs.readFileSync("./game_sets.json"))
     
+    return games
 }
