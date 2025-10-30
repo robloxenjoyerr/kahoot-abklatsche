@@ -3,23 +3,29 @@ let clientID = localStorage.getItem("playerID")
 
 
 socket.on("assignID", (data)=>{
-    localStorage.setItem("playerID", data.id)
+    localStorage.setItem("clientID", data.id)
     clientID = data.id
-    console.log("Neue Spieler-ID erhalten:", clientID);
+    console.log("New Client-ID assigned:", clientID);
 })
 
-socket.on("hostJoinFailed", ()=>{
-    alert("Error: There is a Host already")
+socket.on("hostJoinFailed", (data)=>{
+    alert(data.message)
+    console.log(`Error: ${data.message}`)
 })
 
 socket.on("loadView", (data)=>{
     window.location.href = data.view
 })
 
+
+
+
 const buttons = document.querySelectorAll("button")
 
 buttons[0].addEventListener("click", ()=>{
-    socket.emit("joinHost", { id: clientID, role: "host"})
+    if(localStorage.getItem("clientID") != 0){
+        socket.emit("joinHost", { id: clientID, role: "host"})
+    }
 })
 
 buttons[1].addEventListener("click", ()=>{

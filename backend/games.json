@@ -1,0 +1,28 @@
+[
+    {
+        "host": "",
+        "gameName": "Test",
+        "questions": [
+            {
+                "id": "1",
+                "text": "Welche Farbe hat eine Banane",
+                "value": "Gelb"
+            },
+            {
+                "id": "2",
+                "text": "Welche Farbe hat eine Banane",
+                "value": "Grün"
+            },
+            {
+                "id": "3",
+                "text": "Welche Farbe hat eine Banane",
+                "value": "Rot"
+            },
+            {
+                "id": "4",
+                "text": "Welche Farbe hat eine Banane",
+                "value": "Blau"
+            }
+        ]
+    }
+]

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HOST DASHBOARD</h1>
+    <div class="existing-games-container">
+        <span>Existing Games</span>
+        <div class="games-container">
+            
+        </div>
+    </div>
+    <div class="create-new-game-container">
+        <button id="create-game-button">Create New Game</button>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module">const socket = io(); </script>
+    <script defer src="./js/host.js" type="module"></script>
+</body>
+</html>
