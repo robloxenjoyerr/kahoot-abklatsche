@@ -1,65 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/host.css">
-    <title>Host Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/host.css">
+  <title>Host Dashboard</title>
+  <style>
+    /* Loader Vollbild */
+    #loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-size: 2rem;
+      z-index: 9999;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+    }
+
+    /* Hauptinhalt zunächst unsichtbar */
+    #main-content {
+      visibility: hidden;
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Loader -->
+  <div id="loader">Loading...</div>
+
+  <!-- Hauptinhalt -->
+  <div id="main-content">
     <header>
-        <h1>KAHOOM</h1>
-        <h2>Host Dashboard</h1>
+      <h1>KAHOOM</h1>
+      <h2>Host Dashboard</h2>
     </header>
 
     <main>
-        <section class="existing-games-section">
-            <h2>Existing Game Sets</h2>
-            <div class="games-container">
-                <!-- Buttons for existing games will be appended here -->
-            </div>
-        </section>
+      <!-- Dashboard: Existing Games & Controls -->
+      <div class="dashboard-container">
+        <div class="game-sets-container">
+          <span>Games</span>
 
-
-        <section>
-            <h2>Start Game</h2>
-        </section>
-
-        <section class="create-game-section">
-            <h2>Create New Game Set</h2>
-            <button id="create-game-button">Create New Game</button>
-        </section>
-        <section class="create-game-section" style="display:none;">
-    <header>
-        <h1>Create New Game</h1>
-    </header>
-
-    <div class="create-game-content">
-        <!-- Game Name -->
-        <div class="input-group">
-            <label for="game-name">Game Name:</label>
-            <input type="text" id="game-name" placeholder="Enter game name">
+          <div class="game-list"></div>
         </div>
+        <div class="other-container">
+          <label for="selected-game-set-text">Selected Game</label>
+          <span class="selected-game-set-text">None</span>
 
-        <!-- Questions Container -->
+          <button class="host-game-button">Host Game</button>
+          <button class="create-new-gameset">Create New Game</button>
+          <button class="back-start-button">Back</button>
+        </div>
+      </div>
+
+
+      <!-- Create Game Layout -->
+      <div class="create-game-container" style="display: none;">
         <div class="questions-container">
-            <h2>Questions</h2>
-            <!-- Dynamisch hinzugefügte Fragen kommen hier hin -->
-        </div>
+          <span>Questions</span>
+          <div class="questions-list">
 
-        <!-- Buttons -->
-        <div class="buttons-container">
-            <button id="add-question-button">Add Question</button>
-            <button id="save-game-button">Save Game</button>
-            <button id="back-button">Back to Dashboard</button>
+          </div>
         </div>
-    </div>
-</section>
+        <div class="rest-container">
+          <label for="question-text">Question</label>
+          <input type="text" id="question-text">
+          <div class="question-settings-container">
+            <label for="question-time-limit">Time limit</label>
+            <input type="text" id="question-time-limit">
+            <label for="question-points">Points</label>
+            <input type="text" id="question-points">
+          </div>
+          <div class="answers-container">
+            
+            <input type="text" id="answer1" placeholder="answer 1" required>
+            <label for="checkbox1">correct</label>
+            <input type="checkbox" id="checkbox1">
+          
+            <input type="text" id="answer2" placeholder="answer 2" required>
+            <label for="checkbox2">correct</label>
+            <input type="checkbox" id="checkbox2">
+            
+            <input type="text" id="answer3" placeholder="answer 3" >
+            <label for="checkbox3">correct</label>
+            <input type="checkbox" id="checkbox3">
+           
+            <input type="text" id="answer4" placeholder="answer 4">
+            <label for="checkbox4">correct</label>
+            <input type="checkbox" id="checkbox4">
+            
+            <input type="text" id="answer5" placeholder="answer 5">
+            <label for="checkbox5">correct</label>
+            <input type="checkbox" id="checkbox5">
+            
+            <input type="text" id="answer6" placeholder="answer 6">
+            <label for="checkbox6">correct</label>
+            <input type="checkbox" id="checkbox6">
+          </div>
 
+        </div>
+      </div>
     </main>
+  </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="module">const socket = io();</script>
-    <script defer src="./js/host.js" type="module"></script>
+  <!-- Socket & Host JS -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module">const socket = io();</script>
+  <script defer src="./js/host.js" type="module"></script>
+
+  <!-- Loader Script mit Fade-Out -->
+  <script>
+    document.onreadystatechange = function () {
+      if (document.readyState !== "complete") {
+        document.querySelector("body").style.visibility = "hidden";
+        document.querySelector("#loader").style.visibility = "visible";
+      } else {
+        const loader = document.querySelector("#loader");
+        const mainContent = document.querySelector("#main-content");
+        const body = document.querySelector("body");
+        body.style.visibility = "visible";
+
+        setTimeout(() => {
+          loader.style.opacity = 0;
+          setTimeout(() => {
+            loader.style.display = "none";
+            mainContent.style.visibility = "visible";
+          }, 400);
+        }, 50);
+      }
+    };
+  </script>
 </body>
+
 </html>

@@ -26,7 +26,7 @@ socket.on("loadView", (data)=>{
 const buttons = document.querySelectorAll("button")
 
 buttons[0].addEventListener("click", ()=>{
-    socket.emit("createGame", { view: "./host.html"})
+    socket.emit("beHost", { view: "./host.html"})
 })
 
 buttons[1].addEventListener("click", ()=>{

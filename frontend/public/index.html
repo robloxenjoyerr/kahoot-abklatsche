@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
+    <style>
+        /* Loader Vollbild */
+        #loader {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            color: white;
+            font-size: 2rem;
+            z-index: 9999;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Hauptinhalt zunächst unsichtbar */
+        #main-content {
+            visibility: hidden;
+        }
+    </style>
 </head>
+
+
+
 <body>
-    <div class="container">
-        <h1>KAHOOM</h1>
-        <div class="btn-container">
-            <button class="button">Create New Game</button>
-            <button class="button">Join Game</button>
+    <!-- Loader -->
+    <div id="loader">Loading...</div>
+
+    <div id="main-content">
+        <div class="container">
+            <h1>KAHOOM</h1>
+            <div class="btn-container">
+                <button class="button">Be a Host</button>
+                <button class="button">Join a Game</button>
+            </div>
         </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module">const socket = io(); </script>
+        <script defer src="./js/index.js" type="module"></script>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="module">const socket = io(); </script>
-    <script defer src="./js/index.js" type="module"></script>
+
+    <!-- Loader Script mit Fade-Out -->
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("body").style.visibility = "hidden";
+                document.querySelector("#loader").style.visibility = "visible";
+            } else {
+                const loader = document.querySelector("#loader");
+                const mainContent = document.querySelector("#main-content");
+                const body = document.querySelector("body");
+                body.style.visibility = "visible";
+
+                setTimeout(() => {
+                    loader.style.opacity = 0;
+                    setTimeout(() => {
+                        loader.style.display = "none";
+                        mainContent.style.visibility = "visible";
+                    }, 400);
+                }, 50);
+            }
+        };
+    </script>
 </body>
+
 </html>

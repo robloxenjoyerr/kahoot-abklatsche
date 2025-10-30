@@ -236,5 +236,240 @@
         ]
       }
     ]
+  },
+  {
+    "gameID": "game_005",
+    "host": "",
+    "gameName": "Musik",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Wer komponierte die 9. Sinfonie?",
+        "answers": [
+          { "text": "Beethoven", "correct": true, "points": 15 },
+          { "text": "Mozart", "correct": false },
+          { "text": "Bach", "correct": false },
+          { "text": "Chopin", "correct": false }
+        ]
+      },
+      {
+        "id": "2",
+        "question": "Welche Band sang 'Bohemian Rhapsody'?",
+        "answers": [
+          { "text": "Queen", "correct": true, "points": 10 },
+          { "text": "The Beatles", "correct": false },
+          { "text": "ABBA", "correct": false },
+          { "text": "Nirvana", "correct": false }
+        ]
+      },
+      {
+        "id": "3",
+        "question": "Welches Instrument hat 88 Tasten?",
+        "answers": [
+          { "text": "Klavier", "correct": true, "points": 10 },
+          { "text": "Gitarre", "correct": false },
+          { "text": "Violine", "correct": false },
+          { "text": "Saxophon", "correct": false }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Wer ist der 'King of Pop'?",
+        "answers": [
+          { "text": "Michael Jackson", "correct": true, "points": 15 },
+          { "text": "Elvis Presley", "correct": false },
+          { "text": "Prince", "correct": false },
+          { "text": "Justin Bieber", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "gameID": "game_006",
+    "host": "",
+    "gameName": "Filme",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Wer spielte Neo in 'Matrix'?",
+        "answers": [
+          { "text": "Keanu Reeves", "correct": true, "points": 10 },
+          { "text": "Brad Pitt", "correct": false },
+          { "text": "Tom Cruise", "correct": false },
+          { "text": "Leonardo DiCaprio", "correct": false }
+        ]
+      },
+      {
+        "id": "2",
+        "question": "In welchem Film gibt es den Charakter Jack Sparrow?",
+        "answers": [
+          { "text": "Fluch der Karibik", "correct": true, "points": 10 },
+          { "text": "Harry Potter", "correct": false },
+          { "text": "Der Herr der Ringe", "correct": false },
+          { "text": "Star Wars", "correct": false }
+        ]
+      },
+      {
+        "id": "3",
+        "question": "Wer führte Regie bei 'Inception'?",
+        "answers": [
+          { "text": "Christopher Nolan", "correct": true, "points": 15 },
+          { "text": "Steven Spielberg", "correct": false },
+          { "text": "James Cameron", "correct": false },
+          { "text": "Quentin Tarantino", "correct": false }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Welcher Film gewann 2020 den Oscar für den besten Film?",
+        "answers": [
+          { "text": "Parasite", "correct": true, "points": 20 },
+          { "text": "1917", "correct": false },
+          { "text": "Joker", "correct": false },
+          { "text": "Once Upon a Time in Hollywood", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "gameID": "game_007",
+    "host": "",
+    "gameName": "Sport",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Wie viele Spieler hat eine Fußballmannschaft auf dem Feld?",
+        "answers": [
+          { "text": "11", "correct": true, "points": 10 },
+          { "text": "10", "correct": false },
+          { "text": "12", "correct": false },
+          { "text": "9", "correct": false }
+        ]
+      },
+      {
+        "id": "2",
+        "question": "Welcher Tennisspieler hat die meisten Grand Slam Titel?",
+        "answers": [
+          { "text": "Rafael Nadal", "correct": true, "points": 15 },
+          { "text": "Roger Federer", "correct": false },
+          { "text": "Novak Djokovic", "correct": false },
+          { "text": "Andy Murray", "correct": false }
+        ]
+      },
+      {
+        "id": "3",
+        "question": "In welchem Land wurden die Olympischen Spiele 2016 ausgetragen?",
+        "answers": [
+          { "text": "Brasilien", "correct": true, "points": 10 },
+          { "text": "China", "correct": false },
+          { "text": "USA", "correct": false },
+          { "text": "Japan", "correct": false }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Wie viele Ringe hat das olympische Symbol?",
+        "answers": [
+          { "text": "5", "correct": true, "points": 5 },
+          { "text": "6", "correct": false },
+          { "text": "4", "correct": false },
+          { "text": "7", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "gameID": "game_008",
+    "host": "",
+    "gameName": "Wissenschaft",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Was ist die chemische Formel von Wasser?",
+        "answers": [
+          { "text": "H2O", "correct": true, "points": 10 },
+          { "text": "CO2", "correct": false },
+          { "text": "O2", "correct": false },
+          { "text": "NaCl", "correct": false }
+        ]
+      },
+      {
+        "id": "2",
+        "question": "Wie viele Planeten hat unser Sonnensystem?",
+        "answers": [
+          { "text": "8", "correct": true, "points": 15 },
+          { "text": "7", "correct": false },
+          { "text": "9", "correct": false },
+          { "text": "10", "correct": false }
+        ]
+      },
+      {
+        "id": "3",
+        "question": "Welches Element hat das Symbol 'Fe'?",
+        "answers": [
+          { "text": "Eisen", "correct": true, "points": 10 },
+          { "text": "Fluor", "correct": false },
+          { "text": "Gold", "correct": false },
+          { "text": "Silber", "correct": false }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Wer entwickelte die Relativitätstheorie?",
+        "answers": [
+          { "text": "Albert Einstein", "correct": true, "points": 20 },
+          { "text": "Isaac Newton", "correct": false },
+          { "text": "Galileo Galilei", "correct": false },
+          { "text": "Nikola Tesla", "correct": false }
+        ]
+      }
+    ]
+  },
+  {
+    "gameID": "game_009",
+    "host": "",
+    "gameName": "Geschichte",
+    "questions": [
+      {
+        "id": "1",
+        "question": "Wer war der erste Präsident der USA?",
+        "answers": [
+          { "text": "George Washington", "correct": true, "points": 10 },
+          { "text": "Abraham Lincoln", "correct": false },
+          { "text": "Thomas Jefferson", "correct": false },
+          { "text": "John Adams", "correct": false }
+        ]
+      },
+      {
+        "id": "2",
+        "question": "Wann begann der Zweite Weltkrieg?",
+        "answers": [
+          { "text": "1939", "correct": true, "points": 15 },
+          { "text": "1945", "correct": false },
+          { "text": "1914", "correct": false },
+          { "text": "1920", "correct": false }
+        ]
+      },
+      {
+        "id": "3",
+        "question": "Welche antike Stadt lag am Nil?",
+        "answers": [
+          { "text": "Theben", "correct": true, "points": 10 },
+          { "text": "Rom", "correct": false },
+          { "text": "Athen", "correct": false },
+          { "text": "Karthago", "correct": false }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Wer war der berühmte Entdecker Amerikas?",
+        "answers": [
+          { "text": "Christoph Kolumbus", "correct": true, "points": 15 },
+          { "text": "Marco Polo", "correct": false },
+          { "text": "Ferdinand Magellan", "correct": false },
+          { "text": "James Cook", "correct": false }
+        ]
+      }
+    ]
   }
 ]
