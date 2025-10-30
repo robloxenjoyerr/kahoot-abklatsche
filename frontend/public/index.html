@@ -1,15 +1,19 @@
-//auswahl host spieler
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
 <body>
-    <button>HOST</button>
-    <button>Player</button>
+    <div class="container">
+        <h1>KAHOOM</h1>
+        <div class="btn-container">
+            <button class="button">Create New Game</button>
+            <button class="button">Join Game</button>
+        </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script type="module">const socket = io(); </script>
     <script defer src="./js/index.js" type="module"></script>

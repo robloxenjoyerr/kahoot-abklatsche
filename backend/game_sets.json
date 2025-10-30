@@ -1,0 +1,38 @@
+[
+    {
+        "host": "",
+        "gameName": "Test",
+        "questions": [
+            {
+                "id": "1",
+                "question": "Welche Farbe hat eine Banane",
+                "answers": [
+                    { "text": "Gelb", "correct": true },
+                    { "text": "Grün", "correct": false },
+                    { "text": "Rot", "correct": false },
+                    { "text": "Blau", "correct": false }
+                ]
+            },
+            {
+                "id": "2",
+                "question": "Welche Farbe hat ein Baum",
+                "answers": [
+                    { "text": "Gelb", "correct": false },
+                    { "text": "Grün", "correct": true },
+                    { "text": "Rot", "correct": false },
+                    { "text": "Blau", "correct": false }
+                ]
+            },
+            {
+                "id": "3",
+                "question": "Welche Farbe hat ein Apfel",
+                "answers": [
+                    { "text": "Gelb", "correct": false },
+                    { "text": "Grün", "correct": false },
+                    { "text": "Rot", "correct": true },
+                    { "text": "Blau", "correct": false }
+                ]
+            }
+        ]
+    }
+]

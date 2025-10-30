@@ -1,68 +1,52 @@
 import fs from "fs"
+
 const clients = new Map()
 
 
-let nextPlayerID = 1
-const nextHostID = 0
+let nextClientID = 0
+let activeGames = []
 
 export default function registerGameSocket(io) {
     io.on("connection", (socket) => {
-        socket.on("joinHost", (data) => {
-            const hostExists = [...clients.values()].some(c => c.role === "host");
+        
+        socket.on("requestClientID", ()=>{
+            const newClientID = nextClientID++
+            clients[newClientID] = socket.id
+            socket.clientID = newClientID
 
-            if (hostExists && hostExists.id !== data.id) {
-                socket.emit("hostJoinFailed", { message: "Host already exists" })
-                return
-            }
+            socket.emit("assignClientID", { clientID: newClientID })
+            console.log(`New Client ID generated: ${newClientID}`)
+        })
 
-            let hostID = data.id ?? nextHostID
-            clients.set(hostID, { socketID: socket.id, role: data.role })
+        socket.on("registerClient", ({clientID})=>{
+            clients[clientID] = socket.id
+            socket.clientID = clientID
+            console.log(`Client with ID ${clientID} and Socket ID ${socket.id} reconnected`)
+        })
 
-            if (!data.id) {
-                socket.emit("assignID", { id: hostID })
-            }
+        socket.on("createGame", (data)=>{
+            socket.emit("loadView", )
+        })
 
+
+
+
+
+
+        socket.on("joinGame", (data)=>{
             
-            socket.emit("loadView", { clientRole: data.role, clientID: socket.id, view: "./host.html", games: getGamesJson()})
-            console.log(`${data.role} joined with hostID: ${data.id} and socketId: ${socket.id}`);
+        })
+        
+        socket.on("disconnect", (data)=>{
+            
+        })
+        
+        socket.on("startGame", (data)=>{
+
         })
 
+        socket.on("nextQuestion", (data)=>{
 
-        socket.on("joinGame", (data) => {
-            let playerID = data.id ?? nextPlayerID++
-            clients.set(playerID, { socketID: socket.id, role: data.role, score: 0 })
-
-            if (!data.id) {
-                socket.emit("assignID", { id: playerID })
-            }
-
-            socket.emit("loadView", { view: "./player.html"})
-            console.log(`${data.role} joined with clientID: ${data.id} and socketId: ${socket.id}`);
-        })
-
-
-        socket.on("disconnect", () => {
-            for (const { id, info } of clients.entries()) {
-                if (info && info.socketID === socket.id) { //fix needed
-                    console.log(`Client ${id} (${info.role}) disconnected`)
-
-                    info.socketID = null
-                    break
-                }
-            }
         })
     })
-}
-
-export function getGamesJson(){
-    const gamesJson = JSON.parse(fs.readFileSync("games.json"))
-    return gamesJson
-}
-
-export function addScore(playerID, points) {
-    const player = clients.get(playerID)
-
-    player.score += points
-
-    clients.set(playerID, player)
 }

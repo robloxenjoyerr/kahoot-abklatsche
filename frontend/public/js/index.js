@@ -1,20 +1,21 @@
 const socket = io()
-let clientID = localStorage.getItem("playerID")
 
+socket.on("connect", ()=>{
+    console.log("Connected with Socket: ", socket.id)
 
-socket.on("assignID", (data)=>{
-    localStorage.setItem("clientID", data.id)
-    clientID = data.id
-    console.log("New Client-ID assigned:", clientID);
+    if(!localStorage.getItem("clientID")){
+        socket.emit("requestClientID")
+    }
+    else{
+        const clientID = localStorage.getItem("clientID")
+        socket.emit("registerClient", { clientID })
+    }
 })
 
-socket.on("hostJoinFailed", (data)=>{
-    alert(data.message)
-    console.log(`Error: ${data.message}`)
-})
+socket.on("assignClientID", (data)=>{
+    console.log("Server assigned you a new ID:", data.clientID)
+    localStorage.setItem("clientID", data.clientID)
 
-socket.on("loadView", (data)=>{
-    window.location.href = data.view
 })
 
 
@@ -23,11 +24,9 @@ socket.on("loadView", (data)=>{
 const buttons = document.querySelectorAll("button")
 
 buttons[0].addEventListener("click", ()=>{
-    if(localStorage.getItem("clientID") != 0){
-        socket.emit("joinHost", { id: clientID, role: "host"})
-    }
+    socket.emit("createGame")
 })
 
 buttons[1].addEventListener("click", ()=>{
-    socket.emit("joinGame", { id: clientID, role: "player"})
+    
 })
