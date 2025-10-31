@@ -36,7 +36,11 @@ export default function registerGameSocket(io) {
             socket.emit("loadView", { view: data.view, games: loadExistingGames()})
         })
 
-      
+        
+        socket.on("createNewQuestion", (data)=>{
+            
+        })
+
         socket.on("createNewGameSet", (data)=>{
             
         })
