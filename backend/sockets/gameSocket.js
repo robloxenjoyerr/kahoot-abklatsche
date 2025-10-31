@@ -37,9 +37,6 @@ export default function registerGameSocket(io) {
         })
 
         
-        socket.on("createNewQuestion", (data)=>{
-            
-        })
 
         socket.on("createNewGameSet", (data)=>{
             
